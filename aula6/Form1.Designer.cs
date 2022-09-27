@@ -45,7 +45,7 @@
             this.btnConfirma = new System.Windows.Forms.Button();
             this.btnCorrige = new System.Windows.Forms.Button();
             this.btnBranco = new System.Windows.Forms.Button();
-            this.button10 = new System.Windows.Forms.Button();
+            this.button0 = new System.Windows.Forms.Button();
             this.button9 = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
@@ -202,7 +202,7 @@
             this.panel3.Controls.Add(this.btnConfirma);
             this.panel3.Controls.Add(this.btnCorrige);
             this.panel3.Controls.Add(this.btnBranco);
-            this.panel3.Controls.Add(this.button10);
+            this.panel3.Controls.Add(this.button0);
             this.panel3.Controls.Add(this.button9);
             this.panel3.Controls.Add(this.button8);
             this.panel3.Controls.Add(this.button7);
@@ -227,6 +227,7 @@
             this.btnConfirma.TabIndex = 12;
             this.btnConfirma.Text = "CONFIRMA";
             this.btnConfirma.UseVisualStyleBackColor = false;
+            this.btnConfirma.Click += new System.EventHandler(this.btnConfirma_Click);
             // 
             // btnCorrige
             // 
@@ -237,6 +238,7 @@
             this.btnCorrige.TabIndex = 11;
             this.btnCorrige.Text = "CORRIGE";
             this.btnCorrige.UseVisualStyleBackColor = false;
+            this.btnCorrige.Click += new System.EventHandler(this.btnCorrige_Click);
             // 
             // btnBranco
             // 
@@ -247,16 +249,17 @@
             this.btnBranco.TabIndex = 10;
             this.btnBranco.Text = "BRANCO";
             this.btnBranco.UseVisualStyleBackColor = false;
+            this.btnBranco.Click += new System.EventHandler(this.btnBranco_Click);
             // 
-            // button10
+            // button0
             // 
-            this.button10.Location = new System.Drawing.Point(89, 234);
-            this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(56, 47);
-            this.button10.TabIndex = 9;
-            this.button10.Text = "0";
-            this.button10.UseVisualStyleBackColor = true;
-            this.button10.Click += new System.EventHandler(this.button10_Click);
+            this.button0.Location = new System.Drawing.Point(89, 234);
+            this.button0.Name = "button0";
+            this.button0.Size = new System.Drawing.Size(56, 47);
+            this.button0.TabIndex = 9;
+            this.button0.Text = "0";
+            this.button0.UseVisualStyleBackColor = true;
+            this.button0.Click += new System.EventHandler(this.button0_Click);
             // 
             // button9
             // 
@@ -400,7 +403,7 @@
         private System.Windows.Forms.Button btnConfirma;
         private System.Windows.Forms.Button btnCorrige;
         private System.Windows.Forms.Button btnBranco;
-        private System.Windows.Forms.Button button10;
+        private System.Windows.Forms.Button button0;
         private System.Windows.Forms.Button button9;
         private System.Windows.Forms.Button button8;
         private System.Windows.Forms.Button button7;

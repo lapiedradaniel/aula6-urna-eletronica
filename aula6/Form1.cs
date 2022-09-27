@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Media;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -19,8 +20,8 @@ namespace aula6
         string numero = "";
         Candidato alguem;
         Candidato[] lista = new Candidato[4];
-        //int branco = 0, nulo = 0;
-
+        int branco = 0, nulo = 0;
+        int eleitores = 0;
         private void insereCandidato()
         {
             alguem = new Candidato();
@@ -69,43 +70,51 @@ namespace aula6
 
         private void button5_Click(object sender, EventArgs e)
         {
+            tecla();
             Preenche("5");
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
+            tecla();
             Preenche("1");
 
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
+            tecla();
             Preenche("2");
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
+            tecla();
             Preenche("3");
         }
 
         private void button6_Click(object sender, EventArgs e)
         {
+            tecla();
             Preenche("6");
         }
 
 
         private void button4_Click(object sender, EventArgs e)
         {
+            tecla();
             Preenche("4");
         }
 
         private void button7_Click(object sender, EventArgs e)
         {
+            tecla();
             Preenche("7");
         }
 
         private void button8_Click(object sender, EventArgs e)
         {
+            tecla();
             Preenche("8");
         }
 
@@ -113,17 +122,100 @@ namespace aula6
 
         private void button9_Click(object sender, EventArgs e)
         {
+            tecla();
             Preenche("9");
         }
 
-        private void button10_Click(object sender, EventArgs e)
+        private void button0_Click(object sender, EventArgs e)
         {
-            Preenche("10");
+            tecla();
+            Preenche("0");
+        }
+
+        private void tecla()
+        {
+            //SoundPlayer som = SoundPlayer();
+                //som.Play();
+        }
+
+        
+
+        private void btnConfirma_Click(object sender, EventArgs e)
+        {
+            SoundPlayer som = new SoundPlayer();
+            som.Play();
+            int valido = 0;
+            for (int i = 0; i < 4; i++) 
+            {
+                if (numero == "Branco")
+                {
+                    branco++;
+                    valido = 1;
+                }
+                else
+                {
+                    if (int.Parse(numero) == lista[i].Numero)
+                    {
+                        lista[i].Voto++;
+                        valido = 1;
+
+                    }
+                }
+
+            }
+            
+            
+                if (valido == 0)
+                {
+                    nulo++;
+                }
+            
+            eleitores++;
+            corrige();
+            if (eleitores == 9)
+                {
+                string texto = "Nulo=" + nulo + "\nBranco=" + branco; //concatena nulo e branco
+                for (int i = 0; i < 4; i++)
+                {
+                    texto += "\n" + lista[i].Nome + "=" + lista[i].Voto; // concatena nome e voto do candidato
+                }
+                MessageBox.Show(texto);
+            }
+
+        }
+
+        private void btnBranco_Click(object sender, EventArgs e)
+        {
+            numero = "Branco";
+            lblMensagem.Visible = true;
+            btnConfirma.Enabled = true;
+            lblCandidato.Text = "VOTO EM BRANCO";
+
+
+        }
+        private void corrige()
+        {
+            txtNum1.Text = null;
+            txtNum2.Text = null;
+            lblCandidato.Text = null;
+            lblTurma.Text =  null;
+            lblMensagem.Visible = false;
+            btnConfirma.Enabled = false;
+            numero = "";
+            pxFoto.Image = null;
+
+
+        }
+
+        private void btnCorrige_Click(object sender, EventArgs e)
+        {
+            tecla();
+            corrige();
         }
 
         private void Preenche(string n)
         {
-            if (numero.Length ==0 )
+            if (numero.Length == 0 )
             {
                 txtNum1.Text = n;
                 numero += n; //numero=numero+n 
